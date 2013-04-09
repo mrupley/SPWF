@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_login_box"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:ems="5"
+        android:textSize="19sp"
+        android:text="@string/login"
+        android:textColor="@android:color/white" >
+
+        <requestFocus />
+    </TextView>
+
+    <Button
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="14dp"
+        android:background="@layout/layout_ok"
+        android:onClick="loginToMain"
+        android:text="@string/btn_connect" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="6dp"
+        android:layout_toLeftOf="@+id/imageButton1"
+        android:background="@drawable/textlines"
+        android:ems="9"
+        android:hint=""
+        android:textSize="32sp" />
+
+        <TextView
+            android:paddingTop="25dp"
+            android:id="@+id/TextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/imageButton1"
+            android:ems="5"
+            android:text="@string/no_account"
+            android:textColor="#F17B09"
+            android:textSize="12sp" />
+
+</RelativeLayout>

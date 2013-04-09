@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity" >
+       
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/header_gradient"
+        android:ems="5"
+        android:gravity="center"
+        android:text="@string/chat_with"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
+
+        <include
+            android:id="@+id/cell1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/TextView1"
+            android:layout_above="@+id/cell3"
+            layout="@layout/chat_listview" />
+
+        <include
+            android:id="@+id/cell3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            layout="@layout/layout_send_chat" />
+
+</RelativeLayout>

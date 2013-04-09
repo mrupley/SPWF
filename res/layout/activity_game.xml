@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <com.example.helloandriod.MainGamePanel
+        android:id="@+id/gameBoard1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/imageButton3"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/chatButton" />
+    
+    <Button
+        android:id="@+id/chatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@layout/layout_chatbtn"
+        android:onClick="goToChat" />
+    
+    <Button
+        android:id="@+id/imageButton3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@layout/layout_passbtn"
+        android:onClick="goToChat" />
+    
+    <Button
+        android:id="@+id/recallButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@layout/layout_passbtn"
+        android:onClick="recallTiles" />
+
+       <ImageView
+           android:id="@+id/imageRack"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBottom="@+id/gameBoard1"
+           android:layout_alignParentLeft="true"
+           android:adjustViewBounds="true"
+           android:contentDescription="@string/tile_rack"
+           android:src="@drawable/tile_rack" />
+
+       <ImageButton
+            android:id="@+id/tileButton1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+         	android:layout_marginTop="4dp"
+		    android:layout_marginLeft="3dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/imageRack"
+            android:background="@layout/layout_game_tile" />
+       
+       <ImageButton
+            android:id="@+id/tileButton2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/imageRack"
+            android:background="@layout/layout_game_tile" />
+       
+       <ImageButton
+            android:id="@+id/tileButton3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/imageRack"
+            android:background="@layout/layout_game_tile" />
+       
+       <ImageButton
+            android:id="@+id/tileButton4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/imageRack"
+            android:background="@layout/layout_game_tile" />
+       
+       <ImageButton
+            android:id="@+id/tileButton5"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/imageRack"
+            android:background="@layout/layout_game_tile" />
+       
+       <ImageButton
+            android:id="@+id/tileButton6"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/imageRack"
+            android:background="@layout/layout_game_tile" />
+
+		<ImageButton
+		    android:id="@+id/tileButton7"
+		    android:layout_width="45dp"
+		    android:layout_height="45dp"
+		    android:layout_marginTop="4dp"
+		    android:layout_marginRight="3dp"
+		    android:layout_alignParentRight="true"
+		    android:layout_alignTop="@+id/imageRack"
+		    android:background="@layout/layout_game_tile" />
+
+		<Button
+		    android:id="@+id/imageButton4"
+		    android:layout_width="40dp"
+		    android:layout_height="40dp"
+		    android:layout_below="@+id/gameBoard1"
+		    android:layout_toLeftOf="@+id/imageButton3"
+		    android:background="@layout/layout_playbtn"
+		    android:onClick="goToChat" />
+        
+</RelativeLayout>

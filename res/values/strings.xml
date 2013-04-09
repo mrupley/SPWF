@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Example With Friends</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="btn_ok">OK</string>
+	<string name="btn_play">Play</string>
+	<string name="btn_exit">Exit</string>
+	<string name="btn_connect">Connect</string>
+	<string name="btn_send">Send</string>
+	<string name="btn_cancel">Cancel</string>
+	<string name="login">Login</string>
+	<string name="todo_game">TODO: game</string>
+	<string name="header_desc">Header Image</string>
+	<string name="logo_desc">Header Image</string>
+	<string name="splash_desc">Header Image</string>
+	<string name="chat_with">Chat with</string>
+	<string name="no_account">Don\'t have an account? Enter your e-mail address and we\'ll automatically create one for you.</string>
+	<string name="your_move">Your Move</string>
+	<string name="tile_rack">Tile Rack</string>
+</resources>

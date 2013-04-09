@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:state_pressed="true" android:drawable="@drawable/tile_blank" android:layout_width="70dp" android:layout_height="70dp"/> <!--btn pressed --> 
+<item android:drawable="@drawable/tile_blank_letter" /> <!-- Normal condition -->
+</selector>

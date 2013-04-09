@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_login_box"
+    tools:context=".MainActivity" 
+    android:onClick="startGame"
+                >
+
+   <TextView 
+       android:id="@+id/incomingMessage"
+       android:layout_width="65dp"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_centerVertical="true"
+       android:layout_marginLeft="15dp"
+       android:gravity="center"
+       android:background="@drawable/gameslist_player_icon"
+       android:text=""
+       android:textSize="34sp"
+       android:clickable="false" />
+
+   <TextView
+       android:id="@+id/numberIcon"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignRight="@+id/incomingMessage"
+       android:layout_alignTop="@+id/incomingMessage"
+       android:layout_marginRight="10dp"
+       android:layout_marginTop="25dp"
+       android:clickable="false"
+       android:text=""
+       android:textColor="@android:color/black" />
+   
+   <TextView
+       android:id="@+id/gameTitleWith"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginRight="10dp"
+       android:layout_alignTop="@+id/numberIcon"
+       android:layout_toRightOf="@+id/incomingMessage"
+       android:clickable="false"
+       android:text=""
+       android:textColor="@android:color/white" />
+
+   <TextView
+       android:id="@+id/gameTitleDate"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/numberIcon"
+       android:layout_toRightOf="@+id/incomingMessage"
+       android:clickable="false"
+       android:text=""
+       android:textColor="#999999" />
+   
+   <TextView
+       android:id="@+id/gameTitleLastPlayed"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/gameTitleDate"
+       android:layout_toRightOf="@+id/incomingMessage"
+       android:clickable="false"
+       android:text=""
+       android:textColor="#4876FF" />
+
+</RelativeLayout>
