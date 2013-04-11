@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.widget.RelativeLayout;
 
 public class GameBoard {
 	protected static Bitmap tileBlank, tileBlankLetter, tileCenter,
@@ -29,6 +30,8 @@ public class GameBoard {
 	protected static final int DEFAULT_SPACING_HALF = (GAME_BOARD_HEIGHT - 1) / 2;
 
 	protected static int[][] gameBoard;
+	
+	public static int gameBoardTop = 0;
 
 	protected int m_xOrientation = 0;
 	protected int m_yOrientation = 0;
@@ -159,7 +162,7 @@ public class GameBoard {
 				.createBitmap(
 						(int) (tileWidth * GAME_BOARD_WIDTH),
 						(int) (tileHeight * GAME_BOARD_HEIGHT),
-						Bitmap.Config.ARGB_8888);
+						Bitmap.Config.RGB_565);
 		mCanvas = new Canvas(gameBoardBitmap);
 
 		for (int i = 0; i < GAME_BOARD_WIDTH; i++) {
@@ -238,5 +241,42 @@ public class GameBoard {
 		gameBoard[DEFAULT_SPACING_HALF - yOffset
 				+ (m_xOrientation * (yOffset * 2))][DEFAULT_SPACING_HALF
 				- xOffset + (m_yOrientation * (xOffset * 2))] = tile;
+	}
+	
+	public static void updateBoardTiles(){
+        RelativeLayout.LayoutParams boardParams;
+        float[] tileXY;
+        for(int i = 0; i < GameTile.currentTiles; i++ ){
+        	if(GameTile.tileImages[i] != null && GameTile.tileImages[i].getTag() != null){
+        		tileXY = findTileLocation((int[])GameTile.tileImages[i].getTag());
+        		boardParams = (RelativeLayout.LayoutParams) GameTile.tileImages[i].getLayoutParams();
+        		boardParams.height = (int)(GameBoard.tileHeight * MainGamePanel.mScaleFactor);
+        		boardParams.width = (int)(GameBoard.tileWidth * MainGamePanel.mScaleFactor);
+        		boardParams.leftMargin = (int)tileXY[0];
+        		boardParams.topMargin = (int)tileXY[1];
+            	GameTile.tileImages[i].setLayoutParams(boardParams);
+        	}
+        }
+	}
+	
+	//this returns the x and y coordinates of the tile corresponding to the absolute value on the board.
+	public static int[] getTileXY(int X, int Y){
+		//coordinates on the grid
+		int[] xy = new int[2];
+		
+		//absolute x y
+		float trueX = X - MainGamePanel.mPosX;
+		float trueY = Y - MainGamePanel.mPosY - gameBoardTop;
+		xy[0] = (int) ((trueX / GameBoard.tileWidth) / MainGamePanel.mScaleFactor);
+		xy[1] = (int) ((trueY / GameBoard.tileHeight) / MainGamePanel.mScaleFactor);
+		return xy;
+	}
+	
+	//finds the absolute coordinates for the tile based on the x and y points on the grid
+	private static float[] findTileLocation(int[] coords){
+		float[] xy = new float[2];
+		xy[0] = (GameBoard.tileWidth * MainGamePanel.mScaleFactor * coords[0]) + MainGamePanel.mPosX;
+		xy[1] = (GameBoard.tileHeight * MainGamePanel.mScaleFactor * (coords[1])) + MainGamePanel.mPosY + gameBoardTop;
+		return xy;
 	}
 }

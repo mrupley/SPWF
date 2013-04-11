@@ -47,6 +47,7 @@ public class ActivityGame extends Activity implements Shaker.Callback{
             @Override
             public boolean onPreDraw () {
             	if(!tilesCreated){
+            		GameBoard.gameBoardTop = findViewById(R.id.gameBoard1).getTop();
                 	createTileButtons(GameTile.currentTiles);
                 	tilesCreated = true;
             	}
@@ -134,9 +135,8 @@ public class ActivityGame extends Activity implements Shaker.Callback{
 	    	            case MotionEvent.ACTION_UP:
 	    	            	//put the tile on the board or back where it was
 	    	            	ImageView tileBox = (ImageView)findViewById(R.id.imageRack);
-	    	            	
 	    	            	//sets the tile on the board
-	    	            	if(Y > (int)findViewById(R.id.chatButton).getHeight() && Y < tileBox.getTop()){
+	    	            	if(Y > (int)findViewById(R.id.gameBoard1).getTop() && Y < tileBox.getTop()){
 		    	            	setOnBoard(v.getId(), X, Y);
 	    	            	} else if(Y >= tileBox.getTop() && Y <= tileBox.getBottom()){ //swap tiles with one another
 	    	            		for(int i = 1; i <= GameTile.currentTiles; i++){
@@ -236,15 +236,9 @@ public class ActivityGame extends Activity implements Shaker.Callback{
 	}
 	
 	private void setOnBoard(int index, int X, int Y){
-		RelativeLayout.LayoutParams boardParams = (RelativeLayout.LayoutParams) GameTile.tileImages[index].getLayoutParams();
-		Button chatButton = (Button)findViewById(R.id.chatButton);
-		chatButton.getBottom();
-		boardParams.height = (int)(GameBoard.tileHeight * MainGamePanel.mScaleFactor);
-		boardParams.width = (int)(GameBoard.tileWidth * MainGamePanel.mScaleFactor);
-		boardParams.leftMargin = (int)(X-MainGamePanel.mPosX);
-		boardParams.topMargin = (int)(Y-MainGamePanel.mPosY);
-    	GameTile.tileImages[index].setTag(1);
-    	GameTile.tileImages[index].setLayoutParams(boardParams);
+		int[] grid = GameBoard.getTileXY(X, (Y - findViewById(R.id.gameBoard1).getTop()));
+    	GameTile.tileImages[index].setTag(grid);
+    	GameBoard.updateBoardTiles();
 	}
 	
 	private void swapTiles(int currentTile, int newTile){

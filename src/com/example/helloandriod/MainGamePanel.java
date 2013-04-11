@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.RelativeLayout;
 
 public class MainGamePanel extends SurfaceView{
 	
@@ -116,9 +117,9 @@ private class GestureListener extends GestureDetector.SimpleOnGestureListener {
             mPosX -= distanceX;
             mPosY -= distanceY;
             this.validateXYPosition();
+            GameBoard.updateBoardTiles();
             invalidate();
         }
-
     	return true;
     }
     
@@ -181,6 +182,7 @@ private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureLis
         mScaleFactor = Math.max(SCALE_MINIMUM_FACTOR, Math.min(mScaleFactor, SCALE_TRUE_FACTOR));
         
 		mscaleDifference = mScaleFactor / SCALE_MINIMUM_FACTOR;
+		GameBoard.updateBoardTiles();
         invalidate();
         return true;
     }
